@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1016502809821",
+    "project_id": "escortee-ff721",
+    "storage_bucket": "escortee-ff721.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016502809821:android:2678b8f698a7687d985734",
+        "android_client_info": {
+          "package_name": "com.escorteeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016502809821-0rebputofuoka0p40b5dqv98in2gf3rj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.escorteeapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1016502809821-hb00bk6iidch454vhpjqvapdtsbcegv6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0DiYCZh0o5foKBojgkWpAvChhXL3Ve5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016502809821-hb00bk6iidch454vhpjqvapdtsbcegv6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
