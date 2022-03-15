@@ -66,7 +66,7 @@ export const googleLogin = (dispatch) => {
       dispatch({ type: LOGIN_REQUEST });
       GoogleSignin.configure({
         webClientId:
-          "1016502809821-0rebputofuoka0p40b5dqv98in2gf3rj.apps.googleusercontent.com",
+          "1016502809821-hb00bk6iidch454vhpjqvapdtsbcegv6.apps.googleusercontent.com",
       });
       await GoogleSignin.hasPlayServices();
       const { idToken, user } = await GoogleSignin.signIn();
@@ -78,6 +78,7 @@ export const googleLogin = (dispatch) => {
       dispatch({ type: LOGIN_SUCCESS, payload: { user, firebaseCredentials } });
     } catch (err) {
       dispatch({ type: LOGIN_FAILURE, payload: err.message });
+      console.log(err);
       reject(err);
     }
   });

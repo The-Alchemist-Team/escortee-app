@@ -9,9 +9,10 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { useAuthDispatchContext } from "../context/Auth/AuthContext";
-import { facebookLogin, googleLogin } from "../context/Auth/actions";
+import { facebookLogin, googleLogin, loginUser } from "../context/Auth/actions";
+import { HOME_SCREEN, REGISTER_SCREEN } from "./Constants";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation, route }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,7 +28,7 @@ const LoginScreen = () => {
       password,
     })
       .then(() => {
-        navigation.navigate("Home");
+        navigation.navigate(HOME_SCREEN);
       })
       .catch((err) => {
         alert(err);

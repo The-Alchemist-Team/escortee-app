@@ -1,8 +1,14 @@
 import React, { useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { LoginScreen, RegisterScreen, HomeScreen } from "./screens";
 import {
+  LoginScreen,
+  RegisterScreen,
+  HomeScreen,
+  GettingStarted,
+} from "./screens";
+import {
+  GETTING_STARTED_SCREEN,
   HOME_SCREEN,
   LOGIN_SCREEN,
   REGISTER_SCREEN,
@@ -21,13 +27,14 @@ const Tab = createBottomTabNavigator();
 const App = () => {
   const { user } = useAuthContext();
   const dispatch = useAuthDispatchContext();
-  useEffect(() => {
-    auth().onAuthStateChanged((user) => {
-      if (user) {
-        dispatch({ type: LOGIN_SUCCESS, payload: user });
-      }
-    });
-  }, []);
+
+  // useEffect(() => {
+  //   auth().onAuthStateChanged((user) => {
+  //     if (user) {
+  //       dispatch({ type: LOGIN_SUCCESS, payload: user });
+  //     }
+  //   });
+  // }, []);
 
   const tabBarIcons = ({ focused, color, size }) => {
     return (
@@ -52,6 +59,10 @@ const App = () => {
         </Tab.Navigator>
       ) : (
         <Stack.Navigator>
+          <Stack.Screen
+            name={GETTING_STARTED_SCREEN}
+            component={GettingStarted}
+          />
           <Stack.Screen name={LOGIN_SCREEN} component={LoginScreen} />
           <Stack.Screen name={REGISTER_SCREEN} component={RegisterScreen} />
         </Stack.Navigator>
