@@ -11,6 +11,7 @@ import {
   GETTING_STARTED_SCREEN,
   HOME_SCREEN,
   LOGIN_SCREEN,
+  PLACE_SCREEN,
   REGISTER_SCREEN,
 } from "./screens/Constants";
 import {
@@ -21,6 +22,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import auth from "@react-native-firebase/auth";
 import { LOGIN_SUCCESS } from "./context/Auth/constants";
+import { PlaceScreen } from "./screens/PlacesScreen";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -36,27 +38,17 @@ const App = () => {
   //   });
   // }, []);
 
-  const tabBarIcons = ({ focused, color, size }) => {
-    return (
-      <View>
-        <Text>Hi</Text>
-      </View>
-    );
-  };
-
   return (
     <NavigationContainer>
       {user ? (
-        <Tab.Navigator
-          screenOptions={() => ({
+        <Stack.Navigator
+          screenOptions={{
             headerShown: false,
-            tabBarIcon: tabBarIcons,
-            tabBarActiveTintColor: "tomato",
-            tabBarInactiveTintColor: "gray",
-          })}
+          }}
         >
-          <Tab.Screen name={HOME_SCREEN} component={HomeScreen} />
-        </Tab.Navigator>
+          <Stack.Screen name={HOME_SCREEN} component={HomeScreen} />
+          <Stack.Screen name={PLACE_SCREEN} component={PlaceScreen} />
+        </Stack.Navigator>
       ) : (
         <Stack.Navigator>
           <Stack.Screen
