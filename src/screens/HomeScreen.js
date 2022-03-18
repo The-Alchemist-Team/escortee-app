@@ -9,7 +9,7 @@ import firestore from "@react-native-firebase/firestore";
 
 import React, { useState, useEffect } from "react";
 import { Topbar } from "../components";
-import { HOME_SCREEN, PLACE_SCREEN } from "./Constants";
+import { PLACE_SCREEN } from "./Constants";
 
 const HomeScreen = ({ navigation, route }) => {
   const [places, setPlaces] = useState([]);
@@ -19,6 +19,7 @@ const HomeScreen = ({ navigation, route }) => {
       .collection("places")
       .where("isVerified", "==", true)
       .get()
+
       .then((querySnapshot) => {
         querySnapshot.forEach((documentSnapshot) => {
           setPlaces((prev) => [
@@ -31,7 +32,7 @@ const HomeScreen = ({ navigation, route }) => {
 
   return (
     <View>
-      <Topbar />
+      <Topbar title="EScortee App" />
       <FlatList
         data={places}
         renderItem={({ item }) => (
@@ -41,7 +42,10 @@ const HomeScreen = ({ navigation, route }) => {
               return item.key;
             }}
             onPress={() => {
-              navigation.navigate(PLACE_SCREEN);
+              navigation.navigate(PLACE_SCREEN, {
+                screen: PLACE_SCREEN,
+                place: JSON.stringify(item.place),
+              });
             }}
           >
             <Text style={cardStyles.heading}>{item.place.name}</Text>

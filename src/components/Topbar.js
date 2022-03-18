@@ -1,10 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const Topbar = () => {
+const Topbar = ({ title, bgColor }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.heading}>Escortee App</Text>
+    <View
+      style={{
+        ...styles.container,
+        backgroundColor: bgColor ? bgColor : "#EAB308",
+      }}
+    >
+      <Text style={styles.heading}>{title}</Text>
     </View>
   );
 };
@@ -15,8 +20,7 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: "stretch",
     height: 52,
-    flexDirection: "row", // row
-    backgroundColor: "#EAB308",
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between", // center, space-around
     paddingLeft: 10,

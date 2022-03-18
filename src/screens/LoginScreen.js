@@ -83,7 +83,7 @@ const LoginScreen = ({ navigation, route }) => {
           </Text>
         </View>
         <Button title="Sign in with google" onPress={onGoogleLogin} />
-        <Button title="Sign in with Facebook" onPress={onFacebookLogin} />
+        {/* <Button title="Sign in with Facebook" onPress={onFacebookLogin} /> */}
       </View>
     </View>
   );
